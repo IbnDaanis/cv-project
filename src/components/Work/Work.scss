@@ -8,8 +8,19 @@
     position: relative;
     .edit {
       position: absolute;
-      top: 0;
+      top: 14px;
       right: 0;
+      background: rgb(221, 221, 221);
+      font-size: 1.9rem;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgb(41, 175, 24);
+      padding: 0.2rem;
+      &:hover {
+        filter: brightness(1.2);
+      }
     }
     .form {
       z-index: 100;
@@ -18,7 +29,7 @@
       width: 450px;
       max-width: 95%;
       padding: 1rem;
-      top: 20px;
+      top: 40px;
       right: 0;
       border-radius: 10px;
       display: flex;

@@ -2,17 +2,31 @@ import React, { useState, useRef } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 import { v4 as uuidv4 } from 'uuid'
 
-const EducationForm = ({ companies, setCompanies }) => {
+const EducationForm = ({ setCompanies, company }) => {
   const [hidden, setHidden] = useState(true)
-  const [companyName, setCompanyName] = useState('')
-  const [position, setPosition] = useState('')
-  const [desc, setDesc] = useState('')
+  const [companyName, setCompanyName] = useState(company?.companyName || '')
+  const [position, setPosition] = useState(company?.position || '')
+  const [desc, setDesc] = useState(company?.desc || '')
   const handleSubmit = e => {
     e.preventDefault()
-    setCompanies([...companies, { companyName, position, desc, id: uuidv4() }])
-    setCompanyName('')
-    setPosition('')
-    setDesc('')
+    if (!company) {
+      setCompanies(companies => [
+        ...companies,
+        { companyName, position, desc, id: uuidv4() },
+      ])
+      setCompanyName('')
+      setPosition('')
+      setDesc('')
+    } else {
+      setCompanies(companies =>
+        companies.map(comp => {
+          if (comp.id === company.id) {
+            comp = { companyName, position, desc, id: comp.id }
+          }
+          return comp
+        })
+      )
+    }
   }
   const formRef = useRef(null)
 

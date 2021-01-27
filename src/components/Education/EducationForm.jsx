@@ -9,7 +9,6 @@ const EducationForm = ({ setSchools, school }) => {
   const [dates, setDates] = useState(school?.dates || '')
   const handleSubmit = e => {
     e.preventDefault()
-
     if (!school) {
       setSchools(schools => [
         ...schools,

@@ -32,6 +32,7 @@ const Work = () => {
                   <MdDelete />
                 </button>
               </div>
+              <WorkForm setCompanies={setCompanies} company={company} />
               <p>{company.position}</p>
               <p>{company.desc}</p>
             </div>
