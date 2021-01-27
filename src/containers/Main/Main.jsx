@@ -1,9 +1,12 @@
 import './Main.scss'
+import { General } from '../../components'
 
 const Main = () => {
   return (
     <main>
-      <div className='container'>Main</div>
+      <div className='container'>
+        <General />
+      </div>
     </main>
   )
 }
