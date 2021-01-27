@@ -1,6 +1,6 @@
 # CV Project
 
-**Check out** the app [here](#)
+**Check out** the app [here](https://ibndaanis.github.io/cv-project/)
 
 ### Features of this app:
 
