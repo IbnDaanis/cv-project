@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 import { v4 as uuidv4 } from 'uuid'
 
-const EducationForm = ({ setSchools, school }) => {
+const EducationForm = ({ setSchools, school, index, setCurrMenu, open }) => {
   const [hidden, setHidden] = useState(true)
   const [schoolName, setSchoolName] = useState(school?.schoolName || '')
   const [qual, setQual] = useState(school?.qual || '')
@@ -29,17 +29,36 @@ const EducationForm = ({ setSchools, school }) => {
     }
   }
 
+  const formStyles = () => {
+    if (setCurrMenu) {
+      return {
+        display: !open ? 'none' : 'block',
+      }
+    } else {
+      return {
+        display: hidden ? 'none' : 'block',
+      }
+    }
+  }
+
   return (
     <div className='form-container'>
       <AiFillEdit
         className='edit'
-        onClick={() => setHidden(hidden => !hidden)}
+        onClick={() => {
+          if (setCurrMenu) {
+            open ? setCurrMenu(null) : setCurrMenu(index)
+            setHidden(open)
+          } else {
+            setHidden(hidden => !hidden)
+          }
+        }}
       />
       <form
         className='form'
         onSubmit={handleSubmit}
         autoComplete='off'
-        style={{ display: hidden ? 'none' : 'block' }}
+        style={formStyles()}
       >
         <label htmlFor='schoolName'>School Name</label>
         <input
