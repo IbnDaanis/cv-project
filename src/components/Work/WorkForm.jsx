@@ -35,8 +35,8 @@ const EducationForm = ({ setCompanies, company }) => {
       <AiFillEdit
         className='edit'
         onClick={() => {
-          hidden && formRef.current.scrollIntoView()
           setHidden(hidden => !hidden)
+          hidden && formRef.current.scrollIntoView()
         }}
       />
       <form
@@ -72,7 +72,7 @@ const EducationForm = ({ setCompanies, company }) => {
           onChange={e => setDesc(e.target.value)}
         />
 
-        <button type='submit'>Add Work</button>
+        <button type='submit'>{company ? 'Edit Work' : 'Add Work'}</button>
       </form>
     </div>
   )
