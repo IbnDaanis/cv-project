@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Education.scss'
 import EducationForm from './EducationForm'
 import { MdDelete } from 'react-icons/md'
 
 const Education = () => {
-  const [schools, setSchools] = useState([])
+  const [schools, setSchools] = useState(
+    JSON.parse(localStorage.getItem('education')) || []
+  )
   const deleteSchool = id => {
     setSchools(schools => schools.filter(school => school.id !== id))
   }
+  useEffect(() => {
+    localStorage.setItem('education', JSON.stringify(schools))
+  }, [schools])
+
   return (
     <div className='education'>
       <EducationForm setSchools={setSchools} schools={schools} />
@@ -15,7 +21,7 @@ const Education = () => {
       <div className='details'>
         {schools.map(school => {
           return (
-            <div className='school-experience'>
+            <div className='school-experience' key={school.id}>
               <div className='school-container'>
                 <h3 className='school'>{school.schoolName}</h3>
                 <button

@@ -2,20 +2,20 @@ import React, { useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 import { v4 as uuidv4 } from 'uuid'
 
-const EducationForm = ({ setSchools, schools }) => {
+const EducationForm = ({ setSchools }) => {
   const [hidden, setHidden] = useState(true)
   const [schoolName, setSchoolName] = useState('')
   const [qual, setQual] = useState('')
   const [dates, setDates] = useState('')
   const handleSubmit = e => {
     e.preventDefault()
-    setSchoolName(schoolName)
-    setQual(qual)
-    setDates(dates)
     setSchools(schools => [
       ...schools,
       { schoolName, qual, dates, id: uuidv4() },
     ])
+    setSchoolName('')
+    setQual('')
+    setDates('')
   }
 
   return (

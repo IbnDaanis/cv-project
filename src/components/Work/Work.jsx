@@ -1,14 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Work.scss'
 import WorkForm from './WorkForm'
 import { v4 as uuidv4 } from 'uuid'
 import { MdDelete } from 'react-icons/md'
 
 const Work = () => {
-  const [companies, setCompanies] = useState([])
+  const [companies, setCompanies] = useState(
+    JSON.parse(localStorage.getItem('work')) || []
+  )
   const deleteWork = id => {
     setCompanies(companies => companies.filter(company => company.id !== id))
   }
+  useEffect(() => {
+    localStorage.setItem('work', JSON.stringify(companies))
+  }, [companies])
   return (
     <div className='work'>
       <WorkForm companies={companies} setCompanies={setCompanies} />

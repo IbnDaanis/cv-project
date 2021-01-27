@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 
-const GeneralForm = ({ setFirstName, setLastName, setPhone, setEmail }) => {
+const GeneralForm = ({
+  setFirstName,
+  setLastName,
+  setPhone,
+  setEmail,
+  information,
+}) => {
   const [hidden, setHidden] = useState(true)
-  const [firstNameInput, setFirstNameInput] = useState('')
-  const [lastNameInput, setLastNameInput] = useState('')
-  const [phoneInput, setPhoneInput] = useState('')
-  const [emailInput, setEmailInput] = useState('')
+  const [firstNameInput, setFirstNameInput] = useState(information.firstName)
+  const [lastNameInput, setLastNameInput] = useState(information.lastName)
+  const [phoneInput, setPhoneInput] = useState(information.phone)
+  const [emailInput, setEmailInput] = useState(information.email)
   const handleSubmit = e => {
     e.preventDefault()
     setFirstName(firstNameInput)

@@ -9,10 +9,10 @@ const EducationForm = ({ companies, setCompanies }) => {
   const [desc, setDesc] = useState('')
   const handleSubmit = e => {
     e.preventDefault()
+    setCompanies([...companies, { companyName, position, desc, id: uuidv4() }])
     setCompanyName('')
     setPosition('')
     setDesc('')
-    setCompanies([...companies, { companyName, position, desc, id: uuidv4() }])
   }
   const formRef = useRef(null)
 
