@@ -1,11 +1,13 @@
 import './Main.scss'
-import { General } from '../../components'
+import { General, Education, Work } from '../../components'
 
 const Main = () => {
   return (
     <main>
       <div className='container'>
         <General />
+        <Education />
+        <Work />
       </div>
     </main>
   )

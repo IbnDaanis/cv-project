@@ -1,8 +1,10 @@
-.general {
+.education {
+  margin-top: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid grey;
   .title {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
   .form-container {
     position: relative;
@@ -12,13 +14,13 @@
       right: 0;
     }
     .form {
+      z-index: 100;
       position: absolute;
-      z-index: 1000;
       background: rgb(9, 93, 133);
       width: 450px;
       max-width: 95%;
       padding: 1rem;
-      top: 40px;
+      top: 20px;
       right: 0;
       border-radius: 10px;
       display: flex;
@@ -56,12 +58,36 @@
   }
 
   .details {
-    text-align: center;
-    .name {
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.2rem;
+    .school-experience {
+      position: relative;
+      margin: 1rem 0;
+      padding: 0.5rem 0.5rem;
+      border-radius: 5px;
+      &:hover {
+        background: rgb(230, 230, 230);
+      }
+      .school-container {
+        position: relative;
+        .school {
+          color: #333;
+          font-size: 1.8rem;
+        }
+        .delete-btn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-size: 1.5rem;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: rgb(201, 6, 6);
+          padding: 0.2rem;
+          &:hover {
+            filter: brightness(1.2);
+          }
+        }
+      }
     }
   }
 }
