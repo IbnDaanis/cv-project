@@ -2,20 +2,32 @@ import React, { useState } from 'react'
 import { AiFillEdit } from 'react-icons/ai'
 import { v4 as uuidv4 } from 'uuid'
 
-const EducationForm = ({ setSchools }) => {
+const EducationForm = ({ setSchools, school }) => {
   const [hidden, setHidden] = useState(true)
-  const [schoolName, setSchoolName] = useState('')
-  const [qual, setQual] = useState('')
-  const [dates, setDates] = useState('')
+  const [schoolName, setSchoolName] = useState(school?.schoolName || '')
+  const [qual, setQual] = useState(school?.qual || '')
+  const [dates, setDates] = useState(school?.dates || '')
   const handleSubmit = e => {
     e.preventDefault()
-    setSchools(schools => [
-      ...schools,
-      { schoolName, qual, dates, id: uuidv4() },
-    ])
-    setSchoolName('')
-    setQual('')
-    setDates('')
+
+    if (!school) {
+      setSchools(schools => [
+        ...schools,
+        { schoolName, qual, dates, id: uuidv4() },
+      ])
+      setSchoolName('')
+      setQual('')
+      setDates('')
+    } else {
+      setSchools(schools =>
+        schools.map(sch => {
+          if (sch.id === school.id) {
+            sch = { schoolName, qual, dates, id: sch.id }
+          }
+          return sch
+        })
+      )
+    }
   }
 
   return (
@@ -56,7 +68,7 @@ const EducationForm = ({ setSchools }) => {
           value={dates}
           onChange={e => setDates(e.target.value)}
         />
-        <button type='submit'>Add School</button>
+        <button type='submit'>{school ? 'Edit' : 'Add School'}</button>
       </form>
     </div>
   )
