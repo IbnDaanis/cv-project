@@ -1,0 +1,16 @@
+header {
+  width: 100%;
+  .container {
+    width: 1200px;
+    max-width: 95%;
+    margin: 1rem auto;
+    background: white;
+    border-radius: 10px;
+
+    .title {
+      font-size: 3rem;
+      text-align: center;
+      color: rgb(13, 67, 110);
+    }
+  }
+}
