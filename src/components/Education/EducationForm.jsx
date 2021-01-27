@@ -37,6 +37,7 @@ const EducationForm = ({ setSchools }) => {
           id='schoolName'
           value={schoolName}
           onChange={e => setSchoolName(e.target.value)}
+          required
         />
         <label htmlFor='qual'>Qualification</label>
         <input
@@ -45,6 +46,7 @@ const EducationForm = ({ setSchools }) => {
           id='qual'
           value={qual}
           onChange={e => setQual(e.target.value)}
+          required
         />
         <label htmlFor='dates'>Time of Study</label>
         <input

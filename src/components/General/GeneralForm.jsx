@@ -41,6 +41,7 @@ const GeneralForm = ({
           className='first-name'
           value={firstNameInput}
           onChange={e => setFirstNameInput(e.target.value)}
+          required
         />
         <label htmlFor='lastName'>Last Name</label>
         <input
@@ -50,6 +51,7 @@ const GeneralForm = ({
           className='last-name'
           value={lastNameInput}
           onChange={e => setLastNameInput(e.target.value)}
+          required
         />
         <label htmlFor='phone'>Phone Number</label>
         <input
@@ -59,6 +61,7 @@ const GeneralForm = ({
           className='phone'
           value={phoneInput}
           onChange={e => setPhoneInput(e.target.value)}
+          required
         />
 
         <label htmlFor='email'>Email Address</label>

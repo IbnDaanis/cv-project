@@ -38,6 +38,7 @@ const EducationForm = ({ companies, setCompanies }) => {
           id='companyName'
           value={companyName}
           onChange={e => setCompanyName(e.target.value)}
+          required
         />
         <label htmlFor='positionTitle'>Position Title</label>
         <input
@@ -46,6 +47,7 @@ const EducationForm = ({ companies, setCompanies }) => {
           id='positionTitle'
           value={position}
           onChange={e => setPosition(e.target.value)}
+          required
         />
         <label htmlFor='positionDescription'>Position Description</label>
         <input
