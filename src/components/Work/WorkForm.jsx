@@ -50,7 +50,7 @@ const EducationForm = ({ companies, setCompanies }) => {
         <label htmlFor='positionDescription'>Position Description</label>
         <input
           type='text'
-          placeholder='Position Description'
+          placeholder='Position Dates, Job Description...'
           id='positionDescription'
           value={desc}
           onChange={e => setDesc(e.target.value)}
